@@ -1,0 +1,12 @@
+_site/
+.sass-cache/
+Gemfile.lock
+public/
+resources/
+.idea
+*~
+.DS_Store
+node_modules/
+content/**/00-*.md
+static/**/00-*
+*.lock

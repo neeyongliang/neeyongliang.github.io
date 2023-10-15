@@ -1,0 +1,135 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>think on Yongliang&#39;s Blog</title>
+    <link>https://yongliang.dev/en-us/categories/think/</link>
+    <description>Recent content in think on Yongliang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yongliang.dev/en-us/categories/think/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>岁月神偷：001 韭菜成长记</title>
+      <link>https://yongliang.dev/en-us/think/life-001-jiu-cai-cheng-zhang-ji/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/en-us/think/life-001-jiu-cai-cheng-zhang-ji/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+&lt;img src=&#34;https://yongliang.dev/think/jiucai.png&#34; alt=&#34;韭菜&#34; /&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个人是无法赚到认知之外的钱，即使凭运气赚到了，最终也会凭实力亏掉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;中国股市建立的目的，就是为了解决融资难的问题，让广大的社会资本参与进来。后来经过几十年的发展，形成了如股票、债券、基金、存款、保险等多种投资品种共存的局面，这里说下自己对这些品种的认识，详细的可以查找相关的资料继续学习。&lt;/p&gt;
+&lt;h1 id=&#34;1-股票品类&#34;&gt;1. 股票品类&lt;/h1&gt;
+&lt;p&gt;股票的复杂程度是所有品种里最高的，包含分红、打新、市盈率、市净率、涨停跌停等。股票是投资者可以在市场上直接交易的一种投资品种，沪市指的是上交所，深市指的是深交所，还有新的北交所。创业板门槛较高，一般人无法直接投资。&lt;/p&gt;
+&lt;h2 id=&#34;12-入门&#34;&gt;1.2. 入门&lt;/h2&gt;
+&lt;p&gt;投资者想要投资股票，首先得开通股票账户、准备资金。开通账户的选择有很多，可以选择离你较近的证券营业部或者直接在网上开通。正常买卖，就算是入门了。&lt;/p&gt;
+&lt;h2 id=&#34;122-进阶&#34;&gt;1.2.2. 进阶&lt;/h2&gt;
+&lt;p&gt;股票的涨跌受市场、政策或者小道消息影响，不要追涨杀跌、患得患失，也不要过分迷信价值投资，实现自己预期即可。可以看看专业人士的预测，也可以自己使用模拟软件进行练习，之后再进行真正的投资。&lt;/p&gt;
+&lt;h2 id=&#34;123-避坑&#34;&gt;1.2.3. 避坑&lt;/h2&gt;
+&lt;p&gt;不要自己跑去证券公司 app 或者第三方 app 上开户，这样产生的费率非常高，而且后期无法调整。A 股规定一个人只能有 3 个证券账户，多余的可以申请注销掉。尽量选择业绩排名前十的大券商，然后再从中间挑选服务质量与费率相对合适的券商。&lt;/p&gt;
+&lt;h1 id=&#34;2-基金品类&#34;&gt;2. 基金品类&lt;/h1&gt;
+&lt;p&gt;股票的选择比较多，所以成立了专门的基金公司代替投资者去筛选辨别股票，同时按照一定比重，形成一种组合。基金的涨跌比较温和，风险小于股票。&lt;/p&gt;
+&lt;h2 id=&#34;21-入门&#34;&gt;2.1. 入门&lt;/h2&gt;
+&lt;p&gt;因为目前基金门槛和费率已经大幅降低，只需要在 APP 上填写风险偏好调查，然后即可交易。
+基金分为：债基、指数基金、货币基金。
+场外交易称为申购和赎回，场内交易称为买入和卖出。以交易日当天 15:00 计算，分别是买入(T+0)、计算份额(T+1)、计算收益(T+N)。&lt;/p&gt;
+&lt;h2 id=&#34;22-进阶&#34;&gt;2.2. 进阶&lt;/h2&gt;
+&lt;p&gt;普通人选择 2～3 支基金即可。目前市场上有偏股、偏债等可供选择，还有一些基金会推出基金组合快速买入、跟投。&lt;/p&gt;
+&lt;h2 id=&#34;23-高级&#34;&gt;2.3. 高级&lt;/h2&gt;
+&lt;p&gt;基金投资的高级手法，包括 套利和通过 QDII 进行海外投资。
+以货币基金 ETF 为例，基准价格是 100 元，但是会在这个基础上上下浮动，只要买入价格低于卖出价格，就实现了套利。此外，持有时间也是有相应收益的。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;买入&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;买入确认（有收益）&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;赎回&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;份额确认（无收益）&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;资金可用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周一&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周一&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周一&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周二&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周三&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周二&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周二&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周二&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周三&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周四&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周三&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周三&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周三&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周四&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周五&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周四&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周四&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周四&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周五&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;下周一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周五&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周五&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;周五&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;下周一&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;下周二&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;3-债券品类&#34;&gt;3. 债券品类&lt;/h1&gt;
+&lt;p&gt;债券的分类有很多，一般能接触到的有债券基金、可转债、国债。&lt;/p&gt;
+&lt;h2 id=&#34;31-入门&#34;&gt;3.1. 入门&lt;/h2&gt;
+&lt;p&gt;普通人可以买到的有定期国债、企业债、银行定期存款，债券往往意味着资金要被长期锁定。&lt;/p&gt;
+&lt;h2 id=&#34;32-进阶&#34;&gt;3.2. 进阶&lt;/h2&gt;
+&lt;p&gt;不直接投资债券，选择迂回方式投资。包括：可转债打新，国债逆回购。目前可转债由于人数申请较多，门槛已经被大幅抬高，中签难度也大大增加，一般是企业或者发债机构发债，属于蚊子腿级别。
+国债逆回购，是市场上金融机构向普通投资者借钱的工具之一。参与国债逆回购，按照实际资金占用天数给予利息。&lt;/p&gt;
+&lt;h2 id=&#34;33-高级&#34;&gt;3.3. 高级&lt;/h2&gt;
+&lt;p&gt;注意这个实际占用天数不包含假期，一般规律是最后一个交易日的前一天，会多付很多利息。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每周四借出一天期限的国债逆回购，可以享受四天的利息；&lt;/li&gt;
+&lt;li&gt;每季度末、半年末，出借一天期限的国债逆回购；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，每周一至周四购买国债逆回购或者其他投资，周五购买货币基金 ETF，利用计算方式的不同，可以享受 9 天的收益！&lt;/p&gt;
+&lt;h1 id=&#34;4-存款品类&#34;&gt;4. 存款品类&lt;/h1&gt;
+&lt;h2 id=&#34;41-入门&#34;&gt;4.1. 入门&lt;/h2&gt;
+&lt;p&gt;活期，定期，还有大额存款。&lt;/p&gt;
+&lt;h2 id=&#34;42-进阶&#34;&gt;4.2. 进阶&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;现在存款利息真的很低（2023）；&lt;/li&gt;
+&lt;li&gt;中国法律规定银行如果破产，赔付上限只有 50W；&lt;/li&gt;
+&lt;li&gt;优先买货币基金或者国债逆回购；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;5-保险品类&#34;&gt;5. 保险品类&lt;/h1&gt;
+&lt;h2 id=&#34;51-入门&#34;&gt;5.1. 入门&lt;/h2&gt;
+&lt;p&gt;只买过保险存款，每月一期那种。&lt;/p&gt;
+&lt;h2 id=&#34;52-进阶&#34;&gt;5.2. 进阶&lt;/h2&gt;
+&lt;p&gt;各种保险，养老、人寿等。&lt;/p&gt;
+&lt;h1 id=&#34;6-保持心态&#34;&gt;6. 保持心态&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;不断学习，增强认知；&lt;/li&gt;
+&lt;li&gt;普通人可能本身就不是那块料，交给别人去操作说不定比自己瞎折腾更赚；&lt;/li&gt;
+&lt;li&gt;不要上杠杆，投资用闲钱。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

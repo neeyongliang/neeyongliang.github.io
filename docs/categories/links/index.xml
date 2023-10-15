@@ -1,0 +1,277 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>links on Yongliang&#39;s Blog</title>
+    <link>https://yongliang.dev/categories/links/</link>
+    <description>Recent content in links on Yongliang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yongliang.dev/categories/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>资源：各种国内镜像源</title>
+      <link>https://yongliang.dev/links/chinese-mirrors/</link>
+      <pubDate>Fri, 21 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/chinese-mirrors/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;由于你懂的多原因，有时候下载资源速度会非常慢，所以常常要借助国内镜像镜像源。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;镜像源&#34;&gt;镜像源&lt;/h1&gt;
+&lt;p&gt;国内目前做镜像源比较好的网站，一般分为两类：高校和云服务商。高校中，比较有名的有中科大USTC，清华TUNA，上海交大SJTUG，还有云服务厂商的阿里云、华为云、腾讯云、字节火山云…他们处于自身需求，或者提升产品体验的目的，不断丰富自身开源镜像所囊括的种类，原本作为发行版镜像源网站后来逐渐发展成综合性的镜像源网站。&lt;/p&gt;
+&lt;h2 id=&#34;云厂商&#34;&gt;云厂商&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;阿里云：&lt;a href=&#34;https://developer.aliyun.com/mirror/&#34;&gt;https://developer.aliyun.com/mirror/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;腾讯云：&lt;a href=&#34;https://mirrors.cloud.tencent.com/&#34;&gt;https://mirrors.cloud.tencent.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;华为云：&lt;a href=&#34;https://mirrors.huaweicloud.com/&#34;&gt;https://mirrors.huaweicloud.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;字节火山云：&lt;a href=&#34;https://developer.volcengine.com/mirror/&#34;&gt;https://developer.volcengine.com/mirror/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;高校&#34;&gt;高校&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;中科大USTC：&lt;a href=&#34;https://mirrors.ustc.edu.cn/&#34;&gt;https://mirrors.ustc.edu.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;清华TUNA：&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/&#34;&gt;https://mirrors.tuna.tsinghua.edu.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上海交大SJTUG：&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/&#34;&gt;https://mirrors.tuna.tsinghua.edu.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，首推阿里云和中科大镜像源，下面的分类源均可以在上面的找到。&lt;/p&gt;
+&lt;h1 id=&#34;cargo-源&#34;&gt;cargo 源&lt;/h1&gt;
+&lt;h2 id=&#34;字节-cargo-源&#34;&gt;字节 cargo 源&lt;/h2&gt;
+&lt;p&gt;修改 .bashrc 或 .zshrc 文件，添加如下内容，再 source 更新这些配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#bb60d5&#34;&gt;RUSTUP_DIST_SERVER&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;https://rsproxy.cn&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#bb60d5&#34;&gt;RUSTUP_UPDATE_ROOT&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;https://rsproxy.cn/rustup&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 cargo：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --proto &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#39;=https&amp;#39;&lt;/span&gt; --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新镜像，修改 ~/.cargo/config 文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;source.crates-io&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;replace-with &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#39;rsproxy-sparse&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;source.rsproxy&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bb60d5&#34;&gt;registry&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;https://rsproxy.cn/crates.io-index&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;source.rsproxy-sparse&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bb60d5&#34;&gt;registry&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;sparse+https://rsproxy.cn/index/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;registries.rsproxy&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bb60d5&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;https://rsproxy.cn/crates.io-index&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;net&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git-fetch-with-cli &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注：cargo 1.68 起，已支持 sparse，否则将上面 rsproxy-sparse 改为 rsproxy。&lt;/p&gt;
+&lt;h1 id=&#34;go-源&#34;&gt;go 源&lt;/h1&gt;
+&lt;h2 id=&#34;七牛云-go-源&#34;&gt;七牛云 go 源&lt;/h2&gt;
+&lt;p&gt;如果使用的是 bash，将下面代码中 .zshrc 改为 .bashrc。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#007020&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;export GO111MODULE=on&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#007020&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;export GOPROXY=https://goproxy.cn&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#007020&#34;&gt;source&lt;/span&gt; ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;pip-源&#34;&gt;pip 源&lt;/h1&gt;
+&lt;h2 id=&#34;豆瓣-pip-源&#34;&gt;豆瓣 pip 源&lt;/h2&gt;
+&lt;p&gt;编辑 ~/.pip/pip.conf 文件，添加内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;[&lt;/span&gt;global&lt;span style=&#34;color:#666&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;index-url &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; https://pypi.doubanio.com/simple
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;trusted-host &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pypi.doubanio.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;gitee&#34;&gt;gitee&lt;/h1&gt;
+&lt;p&gt;使用 gitee 能快速的从 Github 上拉取源码。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>资源：那些优秀的文档们</title>
+      <link>https://yongliang.dev/links/developer-document/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/developer-document/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;平时收集的在线文档地址，虽然有一些百度一下就能知道，但是记住域名，效率更高。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;操作系统&#34;&gt;操作系统&lt;/h1&gt;
+&lt;h2 id=&#34;发行版官网&#34;&gt;发行版官网&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian 官方文档：https://www.debian.org/doc/&lt;/li&gt;
+&lt;li&gt;Debian 维护者指南：https://www.debian.org/doc/manuals/debmake-doc/&lt;/li&gt;
+&lt;li&gt;Debian 官方仓库：https://salsa.debian.org/public&lt;/li&gt;
+&lt;li&gt;Debian 包搜索：&lt;a href=&#34;https://www.debian.org/distrib/packages&#34;&gt;https://www.debian.org/distrib/packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ubuntu 包搜索：https://packages.ubuntu.com&lt;/li&gt;
+&lt;li&gt;Fedora 官方文档：https://docs.fedoraproject.org/en-US/docs/&lt;/li&gt;
+&lt;li&gt;CentOS 官方仓库：https://git.centos.org/&lt;/li&gt;
+&lt;li&gt;OpenEuler 官方文档：https://docs.openeuler.org/zh/&lt;/li&gt;
+&lt;li&gt;ArchWiki：&lt;a href=&#34;https://wiki.archlinux.org/&#34;&gt;https://wiki.archlinux.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;openSUSE: &lt;a href=&#34;https://zh.opensuse.org/%E9%A6%96%E9%A1%B5&#34;&gt;https://zh.opensuse.org/首页&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;综合&#34;&gt;综合&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux 命令查询：&lt;a href=&#34;https://www.linuxcool.com/&#34;&gt;https://www.linuxcool.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发行版包搜索：&lt;a href=&#34;https://pkgs.org/&#34;&gt;https://pkgs.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;容器虚拟化&#34;&gt;容器虚拟化&lt;/h1&gt;
+&lt;h2 id=&#34;k8s&#34;&gt;K8S&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;k8s 加固指南（中文版，原作者是 NAS）：https://github.com/rootsongjc/kubernetes-hardening-guidance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;docker&#34;&gt;Docker&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker 官方文档：&lt;a href=&#34;https://docs.docker.com/get-started/&#34;&gt;https://docs.docker.com/get-started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;编程语言&#34;&gt;编程语言&lt;/h1&gt;
+&lt;h2 id=&#34;golang-相关&#34;&gt;Golang 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Go语言编程之旅：https://golang2.eddycjy.com/&lt;/li&gt;
+&lt;li&gt;Practical Go Lessons：https://www.practical-go-lessons.com/&lt;/li&gt;
+&lt;li&gt;Go 语言原本：https://golang.design/under-the-hood/&lt;/li&gt;
+&lt;li&gt;Go 编码建议：https://github.com/dablelv/go-coding-advice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;python-相关&#34;&gt;Python 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Django：https://www.liujiangblog.com/course/django/&lt;/li&gt;
+&lt;li&gt;Python 官方文档：&lt;a href=&#34;https://docs.python.org/zh-cn/3.8/index.html&#34;&gt;https://docs.python.org/zh-cn/3.8/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qt-相关&#34;&gt;Qt 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Qt 官方文档：&lt;a href=&#34;https://doc.qt.io/&#34;&gt;https://doc.qt.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;编程规范&#34;&gt;编程规范&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;谷歌编程风格指南：https://github.com/google/styleguide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;技术文档&#34;&gt;技术文档&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker：从实践到入门，https://yeasy.gitbook.io/docker_practice/&lt;/li&gt;
+&lt;li&gt;图说设计模式，https://design-patterns.readthedocs.io/zh_CN/latest/&lt;/li&gt;
+&lt;li&gt;腾讯开发者文档：&lt;a href=&#34;https://cloud.tencent.com/developer/devdocs&#34;&gt;https://cloud.tencent.com/developer/devdocs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;learnku 学习社区：&lt;a href=&#34;https://learnku.com/&#34;&gt;https://learnku.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;编译构建&#34;&gt;编译构建&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Meson：https://mesonbuild.com/Manual.html&lt;/li&gt;
+&lt;li&gt;CMake 示例：https://github.com/ttroy50/cmake-examples&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>资源：那些优秀的博客们</title>
+      <link>https://yongliang.dev/links/great-blogs/</link>
+      <pubDate>Fri, 06 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/great-blogs/</guid>
+      <description>&lt;p&gt;发现有些写的很好的博客，都是默默无闻的躺在互联网的角落里。搜索引擎并不能真正的指引人们到他们想去的地方。&lt;/p&gt;
+&lt;p&gt;此处，仅仅记录给与我帮助的博客地址，还有那些待发现的……&lt;/p&gt;
+&lt;h1 id=&#34;个人向&#34;&gt;个人向&lt;/h1&gt;
+&lt;h2 id=&#34;devttys3&#34;&gt;/dev/ttyS3&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://ttys3.dev/&#34;&gt;https://ttys3.dev/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：回首向来萧瑟处，也无荒野也无灯。老灯的博客，好奇怪的名字，一眼就记住了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;xuanwos-blog&#34;&gt;Xuanwo&amp;rsquo;s blog&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://xuanwo.io&#34;&gt;https://xuanwo.io&lt;/a&gt;，另有 &lt;a href=&#34;https://note.xuanwo.io&#34;&gt;Xuanwo&amp;rsquo;s note&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Xuanwo 的博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;winddoings-notes&#34;&gt;Winddoing&amp;rsquo;s Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://winddoing.github.io/&#34;&gt;https://winddoing.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：硬件、编码、嵌入式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;面向信仰编程&#34;&gt;面向信仰编程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://draveness.me/&#34;&gt;https://draveness.me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，公众号 draveness，大佬好像转行搞日用品了？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mojotech&#34;&gt;MojoTech&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://mojotv.cn/&#34;&gt;https://mojotv.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，墨鱼大佬&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;wenhf2020&#34;&gt;wenhf2020&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://wenfh2020.com/&#34;&gt;https://wenfh2020.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Linux，个人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hello-小崔的linux&#34;&gt;hello 小崔的Linux&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.zhihu.com/column/c_1136667431828316160&#34;&gt;https://www.zhihu.com/column/c_1136667431828316160&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：知乎专栏，阿里内核工程师&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;迟思堂随笔&#34;&gt;迟思堂随笔&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.latelee.org/&#34;&gt;https://www.latelee.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：综合性博客，非一线城程序员生活。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;柯幽&#34;&gt;柯幽&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://keyou.github.io/blog/&#34;&gt;https://keyou.github.io/blog/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：Linux，显示，已停更&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字节星球&#34;&gt;字节星球&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.bytecho.net/&#34;&gt;https://www.bytecho.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：个人博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;winter_world&#34;&gt;Winter_world&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://winter.blog.csdn.net/&#34;&gt;https://winter.blog.csdn.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：专注于物联网智能设备开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;李文周&#34;&gt;李文周&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.liwenzhou.com/&#34;&gt;https://www.liwenzhou.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，培训讲师&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;点滴汇聚已停更&#34;&gt;点滴汇聚(已停更)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://chasinglulu.github.io/&#34;&gt;https://chasinglulu.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：综合性博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;团队向&#34;&gt;团队向&lt;/h1&gt;
+&lt;h2 id=&#34;腾讯技术工程&#34;&gt;腾讯技术工程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字节跳动工程团队&#34;&gt;字节跳动工程团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;阿里技术团队&#34;&gt;阿里技术团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;美团技术团队&#34;&gt;美团技术团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tech.meituan.com/&#34;&gt;https://tech.meituan.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;综合向&#34;&gt;综合向&lt;/h1&gt;
+&lt;h2 id=&#34;大专栏&#34;&gt;大专栏&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.dazhuanlan.com/&#34;&gt;https://www.dazhuanlan.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：综合性博客，解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>资源：技术文档写作风格指南</title>
+      <link>https://yongliang.dev/links/writing-style-guide/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/writing-style-guide/</guid>
+      <description>&lt;p&gt;其实准确来说应该是（英语）写作指南，里面有太多英语文法类说明，大家自行取舍。&lt;/p&gt;
+&lt;h1 id=&#34;1谷歌开发者文档风格指南&#34;&gt;1.谷歌开发者文档风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://developers.google.cn/style&#34;&gt;https://developers.google.cn/style&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2苹果风格指南&#34;&gt;2.苹果风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://help.apple.com/asg/&#34;&gt;https://help.apple.com/asg/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;3微软写作风格指南&#34;&gt;3.微软写作风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://docs.microsoft.com/en-us/style-guide/welcome/&#34;&gt;https://docs.microsoft.com/en-us/style-guide/welcome/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;4芝加哥手册指南&#34;&gt;4.芝加哥手册指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://www.chicagomanualofstyle.org/&#34;&gt;https://www.chicagomanualofstyle.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Q&amp;amp;A： &lt;a href=&#34;https://www.chicagomanualofstyle.org/qanda/latest.html&#34;&gt;https://www.chicagomanualofstyle.org/qanda/latest.html&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;5英语使用中的常见错误&#34;&gt;5.英语使用中的常见错误&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://brians.wsu.edu/common-errors/&#34;&gt;https://brians.wsu.edu/common-errors/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;6kubernetes-文档风格指南&#34;&gt;6.Kubernetes 文档风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://kubernetes.io/docs/contribute/style/style-guide/&#34;&gt;https://kubernetes.io/docs/contribute/style/style-guide/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;原文&#34;&gt;原文&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.google.cn/style/resources&#34;&gt;https://developers.google.cn/style/resources&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

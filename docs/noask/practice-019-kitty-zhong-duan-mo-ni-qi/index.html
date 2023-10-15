@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang='zh-hans'><!DOCTYPE html>
+<html>
+<head>
+    <title>实践指北：019 kitty 终端模拟器</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="A os engineer, focused on software develop and embedded.">
+<meta name="keywords" content="Technology,Code,Program,Linux,">
+<meta name="author" content="Yongliang">
+
+    <meta property="og:title" content="实践指北：019 kitty 终端模拟器"/>
+<meta property="og:description" content="A os engineer, focused on software develop and embedded."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://yongliang.dev/noask/practice-019-kitty-zhong-duan-mo-ni-qi/"/>
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    
+        
+        <link rel="stylesheet" href="/css/main.min.2599ec2a176be0075b424bd6b71f67c7b8ace5f44e3892ddf42115c6c98c2a71.css" integrity="sha256-JZnsKhdr4AdbQkvWtx9nx7is5fROOJLd9CEVxsmMKnE=">
+    
+
+    
+    
+    <script defer src="/javascript/fontawesome.min.4ff4e3f53e781bf84359ac1fe60d869b86f99b78f6b99d7266779c427ead3b70.js" integrity="sha256-T/Tj9T54G/hDWawf5g2Gm4b5m3j2uZ1yZnecQn6tO3A="></script>
+    
+
+    
+    
+    <script defer src="/javascript/alpine.min.7e822eadf47d61639ca2627f71f50e0f5fbc17d8b68e3264d2842c161d43a82a.js" integrity="sha256-foIurfR9YWOcomJ/cfUOD1+8F9i2jjJk0oQsFh1DqCo="></script>
+    
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+
+    <meta name="generator" content="Hugo 0.115.4">
+</head>
+<body class="min-h-full max-w-4xl font-sans mx-4 lg:mx-auto xl:mx-auto leading-normal my-8"><header class="mx-auto">
+    <h1 class="text-center lg:text-left text-4xl text-gray-900 font-medium m-0">
+        <a class="text-gray-900" href="/">yongliang 的博客</a>
+    </h1>
+    <div class="lg:flex text-center justify-between">
+        <p class="text-lg text-gray-600">操作系统，软件开发，嵌入式</p>
+        <nav class="my-auto">
+            <ul class="justify-center flex flex-wrap list-disc list-inside">
+                <li class="list-none mx-2" x-data="{ open: false }">
+                    <button class="text-gray-600" id="modal-search" role="button" @click="open = true">
+                        <a class="text-gray-600" href="/search/"><i class="text-2xl fas fa-search"></i></a>
+                    </button>
+                </li>
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="/en-us">
+                    <i class="text-2xl fas fa-globe"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="/index.xml">
+                        <i class="text-2xl fas fa-rss"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="https://github.com/neeyongliang">
+                        <i class="text-2xl fas fa-github"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="https://yuque.com/neeyongliang">
+                        <i class="text-2xl fas fa-leanpub"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+    <nav class="text-center border-t border-b px-1 mt-4">
+        <ul class="list-disc list-inside">
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/about">关于</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/noask">实践</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/think">思考</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/fstgu">内功</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/reports">周报</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/links">链接</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/tags">标签</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+<main class="flex-1 text-gray-900">
+    <article class="container pt-16">
+        
+        <header class="pb-4 mb-8 border-b">
+            <h1 class="my-2 text-black leading-tight">实践指北：019 kitty 终端模拟器</h1>
+        </header>
+        <aside>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装">1. 安装</a>
+      <ul>
+        <li><a href="#11-预编译安装">1.1. 预编译安装</a></li>
+        <li><a href="#12-从源码编译">1.2. 从源码编译</a>
+          <ul>
+            <li><a href="#121-准备工作">1.2.1. 准备工作</a></li>
+            <li><a href="#122-构建脚本">1.2.2. 构建脚本</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-配置">2. 配置</a>
+      <ul>
+        <li><a href="#21-全局配置">2.1. 全局配置</a></li>
+        <li><a href="#22-插件配置">2.2. 插件配置</a></li>
+        <li><a href="#23-输入法配置">2.3. 输入法配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-感受">3. 感受</a></li>
+    <li><a href="#4-参考">4. 参考</a></li>
+  </ul>
+</nav>
+        </aside>
+        <div class="post-content">
+            <p>
+
+
+
+
+<img src="/noask/mac-kitty.webp" alt="kitty" />
+</p>
+<p>官网描述中使用了“快速、功能丰富、跨平台、支持 GPU 加速”等文字来描述它，可见作者充满了骄傲。kitty 的核心使用 C 语音编写，并且有着丰富的插件系统 kitten，可以使用其他语音编写。kitten 是幼猫的意思，这里的命名也很有趣。</p>
+<ul>
+<li>官网：<a href="https://sw.kovidgoyal.net/kitty/">https://sw.kovidgoyal.net/kitty/</a></li>
+<li>项目：<a href="https://github.com/kovidgoyal/kitty">https://github.com/kovidgoyal/kitty</a></li>
+</ul>
+<h1 id="1-安装">1. 安装</h1>
+<h2 id="11-预编译安装">1.1. 预编译安装</h2>
+<p>常见的系统可以去 <a href="https://github.com/kovidgoyal/kitty/releases">https://github.com/kovidgoyal/kitty/releases</a> 下载对应启动的二进制包后安装。</p>
+<h2 id="12-从源码编译">1.2. 从源码编译</h2>
+<p>我使用的是 Ubuntu20.04，目前不在支持的列表当中（主要是 glibc 版本太低），可以选择使用 Ubuntu 22.04 中的 kitty-0.21 版本重编，可以选择从源码构建，获取最新的功能。</p>
+<h3 id="121-准备工作">1.2.1. 准备工作</h3>
+<p>kitty 编译要求的条件中，有两项是无法在 Ubuntu 20.04 的自身源里解决的，需要借助特殊手段。</p>
+<ul>
+<li>go &gt;= 1.20</li>
+<li>xxhash &gt;= 0.8.0</li>
+</ul>
+<p>前者可以使用官网脚本手动安装，后者可以使用 Ubuntu 22.04 的源重新编译。</p>
+<p>注意⚠️：源码获取只推荐拉取 git 仓库，不推荐下载 release 页面的压缩包。</p>
+<p>原因：github 仓库自动生成的 release 压缩包是无法拉取 git submodule 的，因此在编译时会发生 zip 错误，官网虽然说可以使用不编译 wayland 模块来绕过，但目前的版本已失效。</p>
+<h3 id="122-构建脚本">1.2.2. 构建脚本</h3>
+<p>进入 kitty 源码文件夹，创建 manual.sh，然后修改版本号，默认是 0.29.2版本，之后使用 sh ./manual.sh 进行构建。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#007020">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#007020"></span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">##########################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Description: build kitty from source in Ubuntu20.04</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   kitty is a greate cross-platform terminal emulator</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Author:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   yongliang &lt;neeyongliang@gmail.com&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Changelog:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   2023.08.27 First release</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">##########################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;Press Ctrl+C anytime if you want interrupt...&#34;</span>
+</span></span><span style="display:flex;"><span>sleep <span style="color:#40a070">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -d Workspace <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    mkdir Workspace
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">version</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;0.29.2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">currArch</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#007020;font-weight:bold">$(</span>uname -m<span style="color:#007020;font-weight:bold">)</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">distroVer</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;ubuntu20.04&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">currArch</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#007020;font-weight:bold">$(</span>dpkg-architecture -q DEB_BUILD_ARCH_CPU<span style="color:#007020;font-weight:bold">)</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># set 0 if you go version uppper 1.20</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">goInstall</span><span style="color:#666">=</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">goVersion</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;1.21.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># set</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">xxhashInstall</span><span style="color:#666">=</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">xxhashVer</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;0.8.1-1&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">cd</span> Workspace <span style="color:#666">||</span> <span style="color:#007020">exit</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f kitty-dep-xxhash <span style="color:#666">]</span> <span style="color:#666">&amp;&amp;</span> <span style="color:#666">[</span> <span style="color:#bb60d5">$xxhashInstall</span> -eq <span style="color:#40a070">1</span> <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># build xxhash</span>
+</span></span><span style="display:flex;"><span>    wget http://archive.ubuntu.com/ubuntu/pool/main/x/xxhash/xxhash_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>.dsc
+</span></span><span style="display:flex;"><span>    wget http://archive.ubuntu.com/ubuntu/pool/main/x/xxhash/xxhash_0.8.1.orig.tar.gz
+</span></span><span style="display:flex;"><span>    wget http://archive.ubuntu.com/ubuntu/pool/main/x/xxhash/xxhash_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>.debian.tar.xz
+</span></span><span style="display:flex;"><span>    touch kitty-dep-xxhash
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt install -y git dpkg-dev debhelper vim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f libxxhash0_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>.deb <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># xxhash not build last time</span>
+</span></span><span style="display:flex;"><span>    rm -rf xxhash-0.8.1
+</span></span><span style="display:flex;"><span>    dpkg-source -x xxhash_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>.dsc
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">cd</span> xxhash-0.8.1/ <span style="color:#666">||</span> <span style="color:#007020">exit</span> <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>    sed -i <span style="color:#4070a0">&#39;s/\= 13/\= 12/g&#39;</span> debian/control
+</span></span><span style="display:flex;"><span>    sleep <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>    dpkg-buildpackage -b
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">cd</span> ..
+</span></span><span style="display:flex;"><span>    sudo dpkg -i libxxhash0_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>_*.deb libxxhash-dev_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$xxhashVer</span><span style="color:#4070a0">&#34;</span>_*.deb
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> <span style="color:#bb60d5">$goInstall</span> -eq <span style="color:#40a070">1</span> <span style="color:#666">]</span> <span style="color:#666">&amp;&amp;</span> <span style="color:#666">[</span> ! -f go<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$goVersion</span><span style="color:#4070a0">&#34;</span>.linux-<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>.tar.gz <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># install go</span>
+</span></span><span style="display:flex;"><span>    wget https://golang.google.cn/dl/go<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$goVersion</span><span style="color:#4070a0">&#34;</span>.linux-<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>.tar.gz
+</span></span><span style="display:flex;"><span>    sudo tar -C /usr/local -xzf go<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$goVersion</span><span style="color:#4070a0">&#34;</span>.linux-<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>.tar.gz
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">export</span> <span style="color:#bb60d5">PATH</span><span style="color:#666">=</span><span style="color:#bb60d5">$PATH</span>:/usr/local/go/bin
+</span></span><span style="display:flex;"><span>go version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#4070a0">&#34;kitty-dep-installed&#34;</span> <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install -y libgl1-mesa-dev libxi-dev libxrandr-dev <span style="color:#4070a0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0;font-weight:bold"></span>  libxinerama-dev ca-certificates libxcursor-dev libxcb-xkb-dev libdbus-1-dev <span style="color:#4070a0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0;font-weight:bold"></span>  libxkbcommon-dev libharfbuzz-dev libx11-xcb-dev zsh libpng-dev liblcms2-dev <span style="color:#4070a0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0;font-weight:bold"></span>  libfontconfig-dev libxkbcommon-x11-dev libcanberra-dev uuid-dev <span style="color:#4070a0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0;font-weight:bold"></span>  libssl-dev python3-dev python3-pip fonts-roboto
+</span></span><span style="display:flex;"><span>  touch kitty-dep-installed
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># for Chinese mirrors</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> <span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$LANG</span><span style="color:#4070a0">&#34;</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;zh_CN.UTF-8&#34;</span> <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  go env -w <span style="color:#bb60d5">GO111MODULE</span><span style="color:#666">=</span>on
+</span></span><span style="display:flex;"><span>  go env -w <span style="color:#bb60d5">GOPROXY</span><span style="color:#666">=</span>https://goproxy.cn,direct
+</span></span><span style="display:flex;"><span>  pip3 config <span style="color:#007020">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f kitty-dep-sphinx <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    sudo pip3 install Sphinx sphinx-copybutton sphinx-inline-tabs sphinxext-opengraph furo
+</span></span><span style="display:flex;"><span>    touch kitty-dep-sphinx
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># clone source</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># set following config if occur &#39;The TLS connection was non-properly terminated&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># git config --global --unset https.https://github.com.proxy</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># git config --global --unset http.https://github.com.proxy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> <span style="color:#666">[</span> ! -d kitty <span style="color:#666">]</span>; <span style="color:#007020;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    git clone https://github.com/kovidgoyal/kitty.git --depth<span style="color:#666">=</span><span style="color:#40a070">1</span> --progress
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">cd</span> kitty <span style="color:#666">||</span> <span style="color:#007020">exit</span> <span style="color:#40a070">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># fix optimize, tuple cannot compare with int type</span>
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#4070a0">&#39;s/optimize=(0, 1, 2)/optimize=0/g&#39;</span> setup.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># for build</span>
+</span></span><span style="display:flex;"><span>make linux-package
+</span></span><span style="display:flex;"><span>gzip -fk linux-package/share/man/man1/kitty.1 &gt; linux-package/share/man/man1/kitty.1.gz
+</span></span><span style="display:flex;"><span>rm -rf kitty_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$version</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$distroVer</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span>mkdir kitty_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$version</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$distroVer</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">cd</span> kitty_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$version</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$distroVer</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span> <span style="color:#666">||</span> <span style="color:#007020">exit</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>mkdir DEBIAN etc usr
+</span></span><span style="display:flex;"><span>cp -a ../linux-package/* usr/
+</span></span><span style="display:flex;"><span>mkdir -p etc/xdg/kitty/
+</span></span><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;update_check_interval 0&#34;</span> &gt; etc/xdg/kitty/kitty.conf
+</span></span><span style="display:flex;"><span>touch DEBIAN/postinst DEBIAN/prerm DEBIAN/control
+</span></span><span style="display:flex;"><span>cat <span style="color:#4070a0">&lt;&lt;EOF &gt; DEBIAN/control
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Package: kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Version: $version-$distroVer
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Architecture: $(dpkg-architecture -q DEB_BUILD_ARCH_CPU)
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Maintainer: yongliang &lt;neeyongliang@gmail.com&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Depends: python3 (&lt;&lt; 3.9),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  python3 (&gt;= 3.8~),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  python3.8,
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  python3:any,
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libc6 (&gt;= 2.29),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libcanberra0 (&gt;= 0.29),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libdbus-1-3 (&gt;= 1.9.14),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libfontconfig1 (&gt;= 2.12.6),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libfreetype6 (&gt;= 2.6),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libharfbuzz0b (&gt;= 2.2.0),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  liblcms2-2 (&gt;= 2.2+git20110628),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libpng16-16 (&gt;= 1.6.2-1),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libpython3.8 (&gt;= 3.8~),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  librsync2 (&gt;= 2.0.0),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libwayland-client0 (&gt;= 1.9.91),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libx11-6 (&gt;= 2:1.2.99.901),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libx11-xcb1 (&gt;= 2:1.6.9),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libxkbcommon-x11-0 (&gt;= 0.5.0),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  libxkbcommon0 (&gt;= 0.5.0),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  openssl (&gt;= 1.1.1),
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  zlib1g (&gt;= 1:1.1.4)
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Recommends: libcanberra0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Suggests: imagemagick
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Provides: x-terminal-emulator
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Section: x11
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Priority: optional
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Homepage: https://sw.kovidgoyal.net/kitty/
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Description: fast, featureful, GPU based terminal emulator
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> Kitty supports modern terminal features like: graphics, unicode,
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> true-color, OpenType ligatures, mouse protocol, focus tracking, and
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> bracketed paste.
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> .
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> Kitty has a framework for &#34;kittens&#34;, small terminal programs that can be used
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"> to extend its functionality.
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Original-Maintainer: James McCoy &lt;jamessan@debian.org&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#40a070">775</span> DEBIAN/postinst DEBIAN/prerm
+</span></span><span style="display:flex;"><span>cat <span style="color:#4070a0">&lt;&lt;EOF &gt; DEBIAN/postinst
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">set -e
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">case &#34;$1&#34; in
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  configure)
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator \
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">        /usr/bin/kitty 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz \
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">        x-terminal-emulator.1.gz /usr/share/man/man1/kitty.1.gz
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    ;;
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">esac
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"># Automatically added by dh_python3:
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">if which py3compile &gt;/dev/null 2&gt;&amp;1; then
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    py3compile -p kitty /usr/lib/kitty -V 3.8
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">fi
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">if which pypy3compile &gt;/dev/null 2&gt;&amp;1; then
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    pypy3compile -p kitty /usr/lib/kitty -V 3.8 || true
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">fi
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"># End automatically added section
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">exit 0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#4070a0">&lt;&lt;EOF &gt; DEBIAN/prerm
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">set -e
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">rm -rf /usr/lib/kitty/shell-integration
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">case &#34;$1&#34; in
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">  remove|deconfigure)
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    rm -rf /usr/lib/kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    update-alternatives --remove x-terminal-emulator /usr/bin/kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    ;;
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">esac
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#DEBHELPER#
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">exit 0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p usr/share/applications
+</span></span><span style="display:flex;"><span>cat <span style="color:#4070a0">&lt;&lt;EOF &gt; usr/share/applications/kitty.desktop
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">[Desktop Entry]
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Version=1.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Type=Application
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Name=kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">GenericName=Terminal emulator
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Comment=Fast, feature-rich, cross-platform, GPU based terminal
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">TryExec=kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Exec=kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Icon=kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">Categories=System;TerminalEmulator;
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p usr/share/icons/hicolor/256x256/apps
+</span></span><span style="display:flex;"><span>cp ../logo/kitty.png usr/share/icons/hicolor/256x256/apps/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p usr/share/python3/runtime.d
+</span></span><span style="display:flex;"><span>cat <span style="color:#4070a0">&lt;&lt;EOF &gt; usr/share/python3/runtime.d/kitty.rtupdate
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">set -e
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">if [ &#34;$1&#34; = rtupdate ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    py3clean -p kitty /usr/lib/kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">    py3compile -p kitty -V 3.8 /usr/lib/kitty
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">fi
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">EOF</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#40a070">775</span> usr/share/python3/runtime.d/kitty.rtupdate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">cd</span> ..
+</span></span><span style="display:flex;"><span>dpkg -b kitty_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$version</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$distroVer</span><span style="color:#4070a0">&#34;</span>_<span style="color:#4070a0">&#34;</span><span style="color:#bb60d5">$currArch</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">exit</span> <span style="color:#40a070">0</span>
+</span></span></code></pre></div><h1 id="2-配置">2. 配置</h1>
+<h2 id="21-全局配置">2.1. 全局配置</h2>
+<p>kitty 作者虽然反对终端复用器，但是作为用户还是要有自己的倔强，可以将快捷键绑定为 tmux 兼容模式。</p>
+<p>主题可以选择任意喜欢的类型，使用 kitty +kitten theme 可以直接选择。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># vim:fileencoding=utf-8:foldmethod=marker</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">###############################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># File:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   kitty for myself.</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Usage:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   mkdir -p $HOME/.config/kitty/</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   cp -a kitty.conf $HOME/.config/kitty/</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Author:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   yongliang &lt;neeyongliang@gmail.com&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Changelog:</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   2022.12.10 First release</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#   2022.12.28 Update keymaps</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">###############################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Fonts {{{</span>
+</span></span><span style="display:flex;"><span>font_family      Cascadia Code
+</span></span><span style="display:flex;"><span>bold_font        auto
+</span></span><span style="display:flex;"><span>italic_font      auto
+</span></span><span style="display:flex;"><span>bold_italic_font auto
+</span></span><span style="display:flex;"><span>font_size 15.0
+</span></span><span style="display:flex;"><span>force_ltr no
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># narrow_symbols U+E0A0-U+E0A3,U+E0C0-U+E0C7 1</span>
+</span></span><span style="display:flex;"><span>disable_ligatures always
+</span></span><span style="display:flex;"><span>font_features none
+</span></span><span style="display:flex;"><span>box_drawing_scale 0.001, 1, 1.5, <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Cursor customization {{{</span>
+</span></span><span style="display:flex;"><span>cursor <span style="color:#60a0b0;font-style:italic">#cccccc</span>
+</span></span><span style="display:flex;"><span>cursor_text_color <span style="color:#60a0b0;font-style:italic">#111111</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># Shape can be: block, beam, underline</span>
+</span></span><span style="display:flex;"><span>cursor_shape block
+</span></span><span style="display:flex;"><span>cursor_beam_thickness 1.5
+</span></span><span style="display:flex;"><span>cursor_underline_thickness 2.0
+</span></span><span style="display:flex;"><span>cursor_blink_interval -1
+</span></span><span style="display:flex;"><span>cursor_stop_blinking_after 30.0
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scrollback {{{</span>
+</span></span><span style="display:flex;"><span>scrollback_lines <span style="color:#40a070">20000</span>
+</span></span><span style="display:flex;"><span>scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
+</span></span><span style="display:flex;"><span>scrollback_pager_history_size <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span>scrollback_fill_enlarged_window no
+</span></span><span style="display:flex;"><span>wheel_scroll_multiplier 5.0
+</span></span><span style="display:flex;"><span>wheel_scroll_min_lines <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>touch_scroll_multiplier 1.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Mouse {{{</span>
+</span></span><span style="display:flex;"><span>mouse_hide_wait 3.0
+</span></span><span style="display:flex;"><span>url_color <span style="color:#60a0b0;font-style:italic">#0087bd</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># style can be: none, straight, double, curly, dotted, dashed.</span>
+</span></span><span style="display:flex;"><span>url_style curly
+</span></span><span style="display:flex;"><span>open_url_with default
+</span></span><span style="display:flex;"><span>url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
+</span></span><span style="display:flex;"><span>detect_urls yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># url_excluded_characters</span>
+</span></span><span style="display:flex;"><span>copy_on_select a1
+</span></span><span style="display:flex;"><span>map ctrl+shift+v paste_from_buffer a1
+</span></span><span style="display:flex;"><span>paste_actions quote-urls-at-prompt
+</span></span><span style="display:flex;"><span>strip_trailing_spaces never
+</span></span><span style="display:flex;"><span>select_by_word_characters @-./_~?&amp;<span style="color:#666">=</span>%+#
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># select_by_word_characters_forward</span>
+</span></span><span style="display:flex;"><span>click_interval -1.0
+</span></span><span style="display:flex;"><span>focus_follows_mouse yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># shape can be: arrow, beam and hand</span>
+</span></span><span style="display:flex;"><span>pointer_shape_when_grabbed hand
+</span></span><span style="display:flex;"><span>default_pointer_shape arrow
+</span></span><span style="display:flex;"><span>pointer_shape_when_dragging hand
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Mouse actions {{{</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Format =&gt; mouse_map button-name event-type modes action</span>
+</span></span><span style="display:flex;"><span>clear_all_mouse_actions no
+</span></span><span style="display:flex;"><span>mouse_map left click ungrabbed mouse_handle_click selection link prompt
+</span></span><span style="display:flex;"><span>mouse_map shift+left click grabbed,ungrabbed mouse_handle_click selection link prompt
+</span></span><span style="display:flex;"><span>mouse_map ctrl+shift+left release grabbed,ungrabbed mouse_handle_click link
+</span></span><span style="display:flex;"><span>mouse_map ctrl+shift+left press grabbed discard_event
+</span></span><span style="display:flex;"><span>mouse_map middle release ungrabbed paste_from_selection
+</span></span><span style="display:flex;"><span>mouse_map left press ungrabbed mouse_selection normal
+</span></span><span style="display:flex;"><span>mouse_map ctrl+alt+left press ungrabbed mouse_selection rectangle
+</span></span><span style="display:flex;"><span>mouse_map left doublepress ungrabbed mouse_selection word
+</span></span><span style="display:flex;"><span>mouse_map left triplepress ungrabbed mouse_selection line
+</span></span><span style="display:flex;"><span>mouse_map ctrl+alt+left triplepress ungrabbed mouse_selection line_from_point
+</span></span><span style="display:flex;"><span>mouse_map right press ungrabbed mouse_selection extend
+</span></span><span style="display:flex;"><span>mouse_map shift+middle release ungrabbed,grabbed paste_selection
+</span></span><span style="display:flex;"><span>mouse_map shift+middle press grabbed discard_event
+</span></span><span style="display:flex;"><span>mouse_map shift+left press ungrabbed,grabbed mouse_selection normal
+</span></span><span style="display:flex;"><span>mouse_map ctrl+shift+alt+left press ungrabbed,grabbed mouse_selection rectangle
+</span></span><span style="display:flex;"><span>mouse_map shift+left doublepress ungrabbed,grabbed mouse_selection word
+</span></span><span style="display:flex;"><span>mouse_map shift+left triplepress ungrabbed,grabbed mouse_selection line
+</span></span><span style="display:flex;"><span>mouse_map ctrl+shift+alt+left triplepress ungrabbed,grabbed mouse_selection line_from_point
+</span></span><span style="display:flex;"><span>mouse_map shift+right press ungrabbed,grabbed mouse_selection extend
+</span></span><span style="display:flex;"><span>mouse_map ctrl+shift+right press ungrabbed mouse_show_command_output
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Mouse actions end</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Mouse end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Performance tuning {{{</span>
+</span></span><span style="display:flex;"><span>repaint_delay <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span>input_delay <span style="color:#40a070">3</span>
+</span></span><span style="display:flex;"><span>sync_to_monitor yes
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Terminal bell {{{</span>
+</span></span><span style="display:flex;"><span>enable_audio_bell no
+</span></span><span style="display:flex;"><span>visual_bell_duration 0.0
+</span></span><span style="display:flex;"><span>visual_bell_color none
+</span></span><span style="display:flex;"><span>window_alert_on_bell yes
+</span></span><span style="display:flex;"><span>bell_on_tab <span style="color:#4070a0">&#34;🔔 &#34;</span>
+</span></span><span style="display:flex;"><span>command_on_bell none
+</span></span><span style="display:flex;"><span>bell_path none
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Window layout {{{</span>
+</span></span><span style="display:flex;"><span>remember_window_size  yes
+</span></span><span style="display:flex;"><span>initial_window_width  <span style="color:#40a070">800</span>
+</span></span><span style="display:flex;"><span>initial_window_height <span style="color:#40a070">600</span>
+</span></span><span style="display:flex;"><span>enabled_layouts splits,stack,grid
+</span></span><span style="display:flex;"><span>map f7 layout_action rotate
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;space layout_action rotate
+</span></span><span style="display:flex;"><span>window_resize_step_cells <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>window_resize_step_lines <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>window_border_width 0.5pt
+</span></span><span style="display:flex;"><span>draw_minimal_borders yes
+</span></span><span style="display:flex;"><span>window_margin_width <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>single_window_margin_width -1
+</span></span><span style="display:flex;"><span>window_padding_width <span style="color:#40a070">5</span>
+</span></span><span style="display:flex;"><span>placement_strategy center
+</span></span><span style="display:flex;"><span>active_border_color <span style="color:#60a0b0;font-style:italic">#00ff00</span>
+</span></span><span style="display:flex;"><span>inactive_border_color <span style="color:#60a0b0;font-style:italic">#cccccc</span>
+</span></span><span style="display:flex;"><span>bell_border_color <span style="color:#60a0b0;font-style:italic">#ff5a00</span>
+</span></span><span style="display:flex;"><span>inactive_text_alpha 1.0
+</span></span><span style="display:flex;"><span>hide_window_decorations no
+</span></span><span style="display:flex;"><span>window_logo_path none
+</span></span><span style="display:flex;"><span>window_logo_position bottom-right
+</span></span><span style="display:flex;"><span>window_logo_alpha 0.5
+</span></span><span style="display:flex;"><span>resize_debounce_time 0.1
+</span></span><span style="display:flex;"><span>resize_in_steps no
+</span></span><span style="display:flex;"><span>visual_window_select_characters 1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</span></span><span style="display:flex;"><span>confirm_os_window_close -1
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Tab bar {{{</span>
+</span></span><span style="display:flex;"><span>tab_bar_edge top
+</span></span><span style="display:flex;"><span>tab_bar_margin_width 0.0
+</span></span><span style="display:flex;"><span>tab_bar_margin_height 0.0 0.0
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># style can be: fade, slant, separator, powerline, custom, hidden</span>
+</span></span><span style="display:flex;"><span>tab_bar_style powerline
+</span></span><span style="display:flex;"><span>tab_bar_align center
+</span></span><span style="display:flex;"><span>tab_bar_min_tabs <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>tab_switch_strategy previous
+</span></span><span style="display:flex;"><span>tab_fade 0.25 0.5 0.75 <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>tab_separator <span style="color:#4070a0">&#34; ┇&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># powerline style can be: angled, slanted, round</span>
+</span></span><span style="display:flex;"><span>tab_powerline_style slanted
+</span></span><span style="display:flex;"><span>tab_activity_symbol none
+</span></span><span style="display:flex;"><span>tab_title_template <span style="color:#4070a0">&#34;Tab.{index}&#34;</span>
+</span></span><span style="display:flex;"><span>active_tab_title_template none
+</span></span><span style="display:flex;"><span>active_tab_foreground   <span style="color:#60a0b0;font-style:italic">#000</span>
+</span></span><span style="display:flex;"><span>active_tab_background   <span style="color:#60a0b0;font-style:italic">#eee</span>
+</span></span><span style="display:flex;"><span>active_tab_font_style   bold-italic
+</span></span><span style="display:flex;"><span>inactive_tab_foreground <span style="color:#60a0b0;font-style:italic">#444</span>
+</span></span><span style="display:flex;"><span>inactive_tab_background <span style="color:#60a0b0;font-style:italic">#999</span>
+</span></span><span style="display:flex;"><span>inactive_tab_font_style normal
+</span></span><span style="display:flex;"><span>tab_bar_background none
+</span></span><span style="display:flex;"><span>tab_bar_margin_color none
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Color scheme {{{</span>
+</span></span><span style="display:flex;"><span>foreground <span style="color:#60a0b0;font-style:italic">#dddddd</span>
+</span></span><span style="display:flex;"><span>background <span style="color:#60a0b0;font-style:italic">#000000</span>
+</span></span><span style="display:flex;"><span>background_opacity <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: bg image can be: tiled, mirror-tiled, scaled, clamped or centered</span>
+</span></span><span style="display:flex;"><span>background_image none
+</span></span><span style="display:flex;"><span>background_image_layout scaled
+</span></span><span style="display:flex;"><span>background_image_linear no
+</span></span><span style="display:flex;"><span>dynamic_background_opacity no
+</span></span><span style="display:flex;"><span>background_tint 0.0
+</span></span><span style="display:flex;"><span>dim_opacity 0.75
+</span></span><span style="display:flex;"><span>selection_foreground <span style="color:#60a0b0;font-style:italic">#000000</span>
+</span></span><span style="display:flex;"><span>selection_background <span style="color:#60a0b0;font-style:italic">#fffacd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: The color table {{{</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: The 256 terminal colors. There are 8 basic colors, each color has a</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: dull and bright version, for the first 16 colors. You can set the</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: remaining 240 colors as color16 to color255.</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: black</span>
+</span></span><span style="display:flex;"><span>color0 <span style="color:#60a0b0;font-style:italic">#000000</span>
+</span></span><span style="display:flex;"><span>color8 <span style="color:#60a0b0;font-style:italic">#767676</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: red</span>
+</span></span><span style="display:flex;"><span>color1 <span style="color:#60a0b0;font-style:italic">#cc0403</span>
+</span></span><span style="display:flex;"><span>color9 <span style="color:#60a0b0;font-style:italic">#f2201f</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: green</span>
+</span></span><span style="display:flex;"><span>color2  <span style="color:#60a0b0;font-style:italic">#19cb00</span>
+</span></span><span style="display:flex;"><span>color10 <span style="color:#60a0b0;font-style:italic">#23fd00</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: yellow</span>
+</span></span><span style="display:flex;"><span>color3  <span style="color:#60a0b0;font-style:italic">#cecb00</span>
+</span></span><span style="display:flex;"><span>color11 <span style="color:#60a0b0;font-style:italic">#fffd00</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: blue</span>
+</span></span><span style="display:flex;"><span>color4  <span style="color:#60a0b0;font-style:italic">#0d73cc</span>
+</span></span><span style="display:flex;"><span>color12 <span style="color:#60a0b0;font-style:italic">#1a8fff</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: magenta</span>
+</span></span><span style="display:flex;"><span>color5  <span style="color:#60a0b0;font-style:italic">#cb1ed1</span>
+</span></span><span style="display:flex;"><span>color13 <span style="color:#60a0b0;font-style:italic">#fd28ff</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: cyan</span>
+</span></span><span style="display:flex;"><span>color6  <span style="color:#60a0b0;font-style:italic">#0dcdcd</span>
+</span></span><span style="display:flex;"><span>color14 <span style="color:#60a0b0;font-style:italic">#14ffff</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: white</span>
+</span></span><span style="display:flex;"><span>color7  <span style="color:#60a0b0;font-style:italic">#dddddd</span>
+</span></span><span style="display:flex;"><span>color15 <span style="color:#60a0b0;font-style:italic">#ffffff</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Color for marks of type 1 (light steel blue)</span>
+</span></span><span style="display:flex;"><span>mark1_foreground black
+</span></span><span style="display:flex;"><span>mark1_background <span style="color:#60a0b0;font-style:italic">#98d3cb</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Color for marks of type 2 (beige)</span>
+</span></span><span style="display:flex;"><span>mark2_foreground black
+</span></span><span style="display:flex;"><span>mark2_background <span style="color:#60a0b0;font-style:italic">#f2dcd3</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Color for marks of type 3 (violet)</span>
+</span></span><span style="display:flex;"><span>mark3_foreground black
+</span></span><span style="display:flex;"><span>mark3_background <span style="color:#60a0b0;font-style:italic">#f274bc</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}} color tab end</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}} Color scheme end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Advanced {{{</span>
+</span></span><span style="display:flex;"><span>shell .
+</span></span><span style="display:flex;"><span>editor .
+</span></span><span style="display:flex;"><span>close_on_child_death no
+</span></span><span style="display:flex;"><span>allow_remote_control yes
+</span></span><span style="display:flex;"><span>listen_on none
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># env</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># watcher</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># exe_search_path</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#:  exe_search_path /some/prepended/path</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#:  exe_search_path +/some/appended/path</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#:  exe_search_path -/some/excluded/path</span>
+</span></span><span style="display:flex;"><span>update_check_interval <span style="color:#40a070">24</span>
+</span></span><span style="display:flex;"><span>startup_session none
+</span></span><span style="display:flex;"><span>clipboard_control write-clipboard write-primary read-clipboard read-primary
+</span></span><span style="display:flex;"><span>clipboard_max_size <span style="color:#40a070">64</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># file_transfer_confirmation_bypass</span>
+</span></span><span style="display:flex;"><span>allow_hyperlinks yes
+</span></span><span style="display:flex;"><span>shell_integration enabled
+</span></span><span style="display:flex;"><span>allow_cloning ask
+</span></span><span style="display:flex;"><span>clone_source_strategies venv,conda,env_var,path
+</span></span><span style="display:flex;"><span>term xterm-256color
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: OS specific tweaks {{{</span>
+</span></span><span style="display:flex;"><span>wayland_titlebar_color system
+</span></span><span style="display:flex;"><span>macos_titlebar_color system
+</span></span><span style="display:flex;"><span>macos_option_as_alt no
+</span></span><span style="display:flex;"><span>macos_hide_from_tasks no
+</span></span><span style="display:flex;"><span>macos_quit_when_last_window_closed no
+</span></span><span style="display:flex;"><span>macos_window_resizable yes
+</span></span><span style="display:flex;"><span>macos_thicken_font <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>macos_traditional_fullscreen no
+</span></span><span style="display:flex;"><span>macos_show_window_title_in all
+</span></span><span style="display:flex;"><span>macos_menubar_title_max_length <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>macos_custom_beam_cursor no
+</span></span><span style="display:flex;"><span>macos_colorspace srgb
+</span></span><span style="display:flex;"><span>linux_display_server auto
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Keyboard shortcuts {{{</span>
+</span></span><span style="display:flex;"><span>kitty_mod ctrl+shift
+</span></span><span style="display:flex;"><span>clear_all_shortcuts no
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Clipboard {{{</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Copy to clipboard</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+c copy_to_clipboard
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Paste from clipboard</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+v paste_from_clipboard
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Paste from selection</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+s  paste_from_selection
+</span></span><span style="display:flex;"><span>map shift+insert paste_from_selection
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Pass selection to program</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+o pass_selection_to_program
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scrolling {{{</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll line up</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+up    scroll_line_up
+</span></span><span style="display:flex;"><span>map kitty_mod+k     scroll_line_up
+</span></span><span style="display:flex;"><span>map cmd+up          scroll_line_up
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll line down</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+down    scroll_line_down
+</span></span><span style="display:flex;"><span>map kitty_mod+j       scroll_line_down
+</span></span><span style="display:flex;"><span>map cmd+down          scroll_line_down
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll page up</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+page_up scroll_page_up
+</span></span><span style="display:flex;"><span>map cmd+page_up       scroll_page_up
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll page down</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+page_down scroll_page_down
+</span></span><span style="display:flex;"><span>map cmd+page_down       scroll_page_down
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll to top</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+home scroll_home
+</span></span><span style="display:flex;"><span>map cmd+home       scroll_home
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll to bottom</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+end scroll_end
+</span></span><span style="display:flex;"><span>map cmd+end       scroll_end
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll to previous shell prompt</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+z scroll_to_prompt -1
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Scroll to next shell prompt</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+x scroll_to_prompt <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Browse scrollback buffer in pager</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+h show_scrollback
+</span></span><span style="display:flex;"><span>map kitty_mod+g show_last_command_output
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: }}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: Window management {{{</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#: New window</span>
+</span></span><span style="display:flex;"><span>map f4              launch --location<span style="color:#666">=</span>split
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># create new window with current directory</span>
+</span></span><span style="display:flex;"><span>map kitty_mod+enter launch --cwd<span style="color:#666">=</span>current
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># create new vertical window</span>
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;|        launch --location<span style="color:#666">=</span>vsplit
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;%        launch --location<span style="color:#666">=</span>vsplit
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;v        launch --location<span style="color:#666">=</span>vsplit
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># create new horizontal window</span>
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;_        launch --location<span style="color:#666">=</span>hsplit
+</span></span><span style="display:flex;"><span>map ctrl+a&gt;<span style="color:#4070a0">&#34;        launch --location=hsplit
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;h        launch --location=hsplit
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: New OS window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+n new_os_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Close window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+w close_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;x close_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Move window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+shift+] next_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+shift+[ previous_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"># move neighboring window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+left    neighboring_window left
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+right   neighboring_window right
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+up      neighboring_window up
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+down    neighboring_window down
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0"># move window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f  move_window_forward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+b  move_window_backward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+`  move_window_to_top
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+up     move_window up
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;k     move_window up
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+left   move_window left
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;h     move_window left
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+right  move_window right
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;l     move_window right
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+down   move_window down
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;j     move_window down
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Start resizing window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+r  start_resizing_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map cmd+r        start_resizing_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+right    resize_window narrower
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+left     resize_window wider
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+up       resize_window taller
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+plus     resize_window taller
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+down     resize_window shorter 3
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map alt+minus    resize_window shorter 3
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+home    resize_window reset
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Index window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+1 first_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+2 second_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+3 third_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+4 fourth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+5 fifth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+6 sixth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+7 seventh_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+8 eighth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+9 ninth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+0 tenth_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Visually select and focus window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f7 focus_visible_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;q focus_visible_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Visually swap window with another
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f8 swap_with_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Tab management {{{
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Next tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+right next_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+tab        next_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;n        next_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Previous tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+left  previous_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+shift+tab  previous_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;p        next_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: New tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+t     new_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map cmd+t           new_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;c        new_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Close tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+q     close_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map cmd+w           close_tab
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Close OS window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+cmd+w close_os_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+q close_os_window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Move tab forward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+. move_tab_forward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Move tab backward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+, move_tab_backward
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Set tab title
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+alt+t set_tab_title
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;,        set_tab_title
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Go to tab index
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+1       goto_tab 1
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;1     goto_tab 1
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+2       goto_tab 2
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;2     goto_tab 2
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+3       goto_tab 3
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;3     goto_tab 3
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+4       goto_tab 4
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;4     goto_tab 4
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+5       goto_tab 5
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;5     goto_tab 5
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+6       goto_tab 6
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;6     goto_tab 6
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+7       goto_tab 7
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;7     goto_tab 7
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+8       goto_tab 8
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;8     goto_tab 8
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+9       goto_tab 9
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;9     goto_tab 9
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+0       goto_tab 10
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;0     goto_tab 10
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Font sizes {{{
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+equal  change_font_size all +2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+plus   change_font_size all +2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+kp_add change_font_size all +2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+minus       change_font_size all -2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+kp_subtract change_font_size all -2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Reset font size
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+backspace change_font_size all 0
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Select and act on visible text {{{
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Open URL
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+e open_url_with_hints
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Insert selected path
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;f kitten hints --type path --program -
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;shift+f kitten hints --type path
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;l kitten hints --type line --program -
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;w kitten hints --type word --program -
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;h kitten hints --type hash --program -
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Open the selected file at the selected line
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;n kitten hints --type linenum
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Open the selected hyperlink
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+p&gt;y kitten hints --type hyperlink
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Miscellaneous {{{
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Show documentation
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f1 show_kitty_doc overview
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Toggle fullscreen
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f11 toggle_fullscreen
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Toggle maximized
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f10 toggle_maximized
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Toggle macOS secure keyboard entry
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map opt+cmd+s toggle_macos_secure_keyboard_entry
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Unicode input
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+u kitten unicode_input
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Edit config file
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f2 edit_config_file
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Open the kitty command shell
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+escape kitty_shell window
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+a&gt;m set_background_opacity +0.1
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+a&gt;l set_background_opacity -0.1
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Make background fully opaque
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+a&gt;1 set_background_opacity 1
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Reset background opacity
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+a&gt;d set_background_opacity default
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Reset the terminal
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+delete clear_terminal reset active
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Clear up to cursor line
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map cmd+k clear_terminal to_cursor active
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Reload kitty.conf
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f5 load_config_file
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Debug
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map kitty_mod+f6 debug_config
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Open kitty Website
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: Theme {{{
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">map ctrl+a&gt;t kitten themes
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">include current-theme.conf
+</span></span></span><span style="display:flex;"><span><span style="color:#4070a0">#: }}}
+</span></span></span></code></pre></div><h2 id="22-插件配置">2.2. 插件配置</h2>
+<p>kitty 的 Session 其实跟 tmux 的 Session 不是一回事，它只是一种“固定的模版打开”的形式，比如设置上下分栏，7:3 比例，那么没事使用这个 Session 打开的都是这种布局，但是无法 attach 或者 dettach。</p>
+<p>其他的图片查看、diff 等使用，可以查看官网，我还是比较喜欢使用独立的工具。</p>
+<h2 id="23-输入法配置">2.3. 输入法配置</h2>
+<p>kitty 不支持 fcitx4，即使是 fcitx5，配置里也是 ibus，参考 <a href="https://github.com/kovidgoyal/kitty/issues/469">https://github.com/kovidgoyal/kitty/issues/469</a>。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#bb60d5">GLFW_IM_MODULE</span><span style="color:#666">=</span>ibus kitty
+</span></span></code></pre></div><h1 id="3-感受">3. 感受</h1>
+<p>我一直在寻找一款使用顺手的现代化终端模拟器，不可否认传承至今的“老朋友们”依然稳定可靠，坚如磐石，但一些功能的缺失让人总是在一些地方很遗憾，比如多路复用，比如不支持 openGL…</p>
+<p>我知道有很多方法解决上面的问题，但那是设计之初就存在的问题，在我可以预见的时间里，那些特性是不可能加入的，比较“稳”太重要了（笑）。在我搜寻范围内，可以很好支持 GPU 的终端主要有三款：alacritty、wezterm 和 kitty。</p>
+<p>这几款我都试用过一段时间，总的来说各自有各自的问题，alacritty 速度快但功能单一，wezterm 功能丰富但内存占用，kitty 不支持 fcitx4 ，作者宣称讨厌所有终端复用器，但又还没有做出类似 tmux 的原生功能。综合考虑几款终端，我认为 kitty 是综合实力最优秀的。</p>
+<h1 id="4-参考">4. 参考</h1>
+<ul>
+<li><a href="https://sw.kovidgoyal.net/kitty/build/#build-from-source">https://sw.kovidgoyal.net/kitty/build/#build-from-source</a></li>
+<li><a href="https://ttys3.dev/blog/kitty">https://ttys3.dev/blog/kitty</a></li>
+</ul>
+
+        </div>
+        
+        <div class="text-center pt-4 grid grid-cols-12">
+        
+    
+    
+            <div class="col-span-2">
+                <p>分类</p>
+            </div>
+            <div class="col-span-10">
+                <p>
+                    
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/categories/practice/"> practice </a>
+                            
+                        
+                    
+                </p>
+            </div>
+            
+            
+            
+    
+    
+            <div class="col-span-2">
+                <p>标签</p>
+            </div>
+            <div class="col-span-10">
+                <p>
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/tags/kitty/"> kitty </a>
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/tags/linux/"> linux </a>
+                            
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/tags/terminal/"> terminal </a>
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                </p>
+            </div>
+            
+            
+            
+        </div>
+        <hr class="border-gray-200 mt-10 mb-4">
+        
+        <div class="giscus"></div>
+
+<script src="https://giscus.app/client.js"
+        data-repo="neeyongliang/neeyongliang.github.io"
+        data-repo-id="R_kgDOKJTgJQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKJTgJc4CY3OE"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+    </article>
+
+
+    
+    
+</main>
+</body>
+</html>

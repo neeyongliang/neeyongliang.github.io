@@ -1,0 +1,118 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Yongliang&#39;s Blog</title>
+    <link>https://yongliang.dev/tags/blog/</link>
+    <description>Recent content in blog on Yongliang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Fri, 06 Jan 2023 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yongliang.dev/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>资源：那些优秀的博客们</title>
+      <link>https://yongliang.dev/links/great-blogs/</link>
+      <pubDate>Fri, 06 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/great-blogs/</guid>
+      <description>&lt;p&gt;发现有些写的很好的博客，都是默默无闻的躺在互联网的角落里。搜索引擎并不能真正的指引人们到他们想去的地方。&lt;/p&gt;
+&lt;p&gt;此处，仅仅记录给与我帮助的博客地址，还有那些待发现的……&lt;/p&gt;
+&lt;h1 id=&#34;个人向&#34;&gt;个人向&lt;/h1&gt;
+&lt;h2 id=&#34;devttys3&#34;&gt;/dev/ttyS3&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://ttys3.dev/&#34;&gt;https://ttys3.dev/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：回首向来萧瑟处，也无荒野也无灯。老灯的博客，好奇怪的名字，一眼就记住了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;xuanwos-blog&#34;&gt;Xuanwo&amp;rsquo;s blog&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://xuanwo.io&#34;&gt;https://xuanwo.io&lt;/a&gt;，另有 &lt;a href=&#34;https://note.xuanwo.io&#34;&gt;Xuanwo&amp;rsquo;s note&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Xuanwo 的博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;winddoings-notes&#34;&gt;Winddoing&amp;rsquo;s Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://winddoing.github.io/&#34;&gt;https://winddoing.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：硬件、编码、嵌入式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;面向信仰编程&#34;&gt;面向信仰编程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://draveness.me/&#34;&gt;https://draveness.me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，公众号 draveness，大佬好像转行搞日用品了？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mojotech&#34;&gt;MojoTech&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://mojotv.cn/&#34;&gt;https://mojotv.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，墨鱼大佬&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;wenhf2020&#34;&gt;wenhf2020&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://wenfh2020.com/&#34;&gt;https://wenfh2020.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Linux，个人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hello-小崔的linux&#34;&gt;hello 小崔的Linux&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.zhihu.com/column/c_1136667431828316160&#34;&gt;https://www.zhihu.com/column/c_1136667431828316160&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：知乎专栏，阿里内核工程师&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;迟思堂随笔&#34;&gt;迟思堂随笔&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.latelee.org/&#34;&gt;https://www.latelee.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：综合性博客，非一线城程序员生活。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;柯幽&#34;&gt;柯幽&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://keyou.github.io/blog/&#34;&gt;https://keyou.github.io/blog/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：Linux，显示，已停更&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字节星球&#34;&gt;字节星球&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.bytecho.net/&#34;&gt;https://www.bytecho.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：个人博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;winter_world&#34;&gt;Winter_world&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://winter.blog.csdn.net/&#34;&gt;https://winter.blog.csdn.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：专注于物联网智能设备开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;李文周&#34;&gt;李文周&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.liwenzhou.com/&#34;&gt;https://www.liwenzhou.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：Go，培训讲师&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;点滴汇聚已停更&#34;&gt;点滴汇聚(已停更)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://chasinglulu.github.io/&#34;&gt;https://chasinglulu.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：综合性博客&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;团队向&#34;&gt;团队向&lt;/h1&gt;
+&lt;h2 id=&#34;腾讯技术工程&#34;&gt;腾讯技术工程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字节跳动工程团队&#34;&gt;字节跳动工程团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;阿里技术团队&#34;&gt;阿里技术团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：同名微信号&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;美团技术团队&#34;&gt;美团技术团队&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tech.meituan.com/&#34;&gt;https://tech.meituan.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;简介：大厂技术团队&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;综合向&#34;&gt;综合向&lt;/h1&gt;
+&lt;h2 id=&#34;大专栏&#34;&gt;大专栏&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;地址：&lt;a href=&#34;https://www.dazhuanlan.com/&#34;&gt;https://www.dazhuanlan.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;介绍：综合性博客，解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

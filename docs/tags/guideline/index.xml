@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>guideline on Yongliang&#39;s Blog</title>
+    <link>https://yongliang.dev/tags/guideline/</link>
+    <description>Recent content in guideline on Yongliang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yongliang.dev/tags/guideline/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>资源：技术文档写作风格指南</title>
+      <link>https://yongliang.dev/links/writing-style-guide/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/writing-style-guide/</guid>
+      <description>&lt;p&gt;其实准确来说应该是（英语）写作指南，里面有太多英语文法类说明，大家自行取舍。&lt;/p&gt;
+&lt;h1 id=&#34;1谷歌开发者文档风格指南&#34;&gt;1.谷歌开发者文档风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://developers.google.cn/style&#34;&gt;https://developers.google.cn/style&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2苹果风格指南&#34;&gt;2.苹果风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://help.apple.com/asg/&#34;&gt;https://help.apple.com/asg/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;3微软写作风格指南&#34;&gt;3.微软写作风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://docs.microsoft.com/en-us/style-guide/welcome/&#34;&gt;https://docs.microsoft.com/en-us/style-guide/welcome/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;4芝加哥手册指南&#34;&gt;4.芝加哥手册指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://www.chicagomanualofstyle.org/&#34;&gt;https://www.chicagomanualofstyle.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Q&amp;amp;A： &lt;a href=&#34;https://www.chicagomanualofstyle.org/qanda/latest.html&#34;&gt;https://www.chicagomanualofstyle.org/qanda/latest.html&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;5英语使用中的常见错误&#34;&gt;5.英语使用中的常见错误&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://brians.wsu.edu/common-errors/&#34;&gt;https://brians.wsu.edu/common-errors/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;6kubernetes-文档风格指南&#34;&gt;6.Kubernetes 文档风格指南&lt;/h1&gt;
+&lt;p&gt;官网： &lt;a href=&#34;https://kubernetes.io/docs/contribute/style/style-guide/&#34;&gt;https://kubernetes.io/docs/contribute/style/style-guide/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;原文&#34;&gt;原文&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.google.cn/style/resources&#34;&gt;https://developers.google.cn/style/resources&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

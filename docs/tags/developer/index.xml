@@ -1,0 +1,87 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>developer on Yongliang&#39;s Blog</title>
+    <link>https://yongliang.dev/tags/developer/</link>
+    <description>Recent content in developer on Yongliang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Wed, 05 Jul 2023 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yongliang.dev/tags/developer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>资源：那些优秀的文档们</title>
+      <link>https://yongliang.dev/links/developer-document/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yongliang.dev/links/developer-document/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;平时收集的在线文档地址，虽然有一些百度一下就能知道，但是记住域名，效率更高。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;操作系统&#34;&gt;操作系统&lt;/h1&gt;
+&lt;h2 id=&#34;发行版官网&#34;&gt;发行版官网&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian 官方文档：https://www.debian.org/doc/&lt;/li&gt;
+&lt;li&gt;Debian 维护者指南：https://www.debian.org/doc/manuals/debmake-doc/&lt;/li&gt;
+&lt;li&gt;Debian 官方仓库：https://salsa.debian.org/public&lt;/li&gt;
+&lt;li&gt;Debian 包搜索：&lt;a href=&#34;https://www.debian.org/distrib/packages&#34;&gt;https://www.debian.org/distrib/packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ubuntu 包搜索：https://packages.ubuntu.com&lt;/li&gt;
+&lt;li&gt;Fedora 官方文档：https://docs.fedoraproject.org/en-US/docs/&lt;/li&gt;
+&lt;li&gt;CentOS 官方仓库：https://git.centos.org/&lt;/li&gt;
+&lt;li&gt;OpenEuler 官方文档：https://docs.openeuler.org/zh/&lt;/li&gt;
+&lt;li&gt;ArchWiki：&lt;a href=&#34;https://wiki.archlinux.org/&#34;&gt;https://wiki.archlinux.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;openSUSE: &lt;a href=&#34;https://zh.opensuse.org/%E9%A6%96%E9%A1%B5&#34;&gt;https://zh.opensuse.org/首页&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;综合&#34;&gt;综合&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux 命令查询：&lt;a href=&#34;https://www.linuxcool.com/&#34;&gt;https://www.linuxcool.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发行版包搜索：&lt;a href=&#34;https://pkgs.org/&#34;&gt;https://pkgs.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;容器虚拟化&#34;&gt;容器虚拟化&lt;/h1&gt;
+&lt;h2 id=&#34;k8s&#34;&gt;K8S&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;k8s 加固指南（中文版，原作者是 NAS）：https://github.com/rootsongjc/kubernetes-hardening-guidance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;docker&#34;&gt;Docker&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker 官方文档：&lt;a href=&#34;https://docs.docker.com/get-started/&#34;&gt;https://docs.docker.com/get-started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;编程语言&#34;&gt;编程语言&lt;/h1&gt;
+&lt;h2 id=&#34;golang-相关&#34;&gt;Golang 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Go语言编程之旅：https://golang2.eddycjy.com/&lt;/li&gt;
+&lt;li&gt;Practical Go Lessons：https://www.practical-go-lessons.com/&lt;/li&gt;
+&lt;li&gt;Go 语言原本：https://golang.design/under-the-hood/&lt;/li&gt;
+&lt;li&gt;Go 编码建议：https://github.com/dablelv/go-coding-advice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;python-相关&#34;&gt;Python 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Django：https://www.liujiangblog.com/course/django/&lt;/li&gt;
+&lt;li&gt;Python 官方文档：&lt;a href=&#34;https://docs.python.org/zh-cn/3.8/index.html&#34;&gt;https://docs.python.org/zh-cn/3.8/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qt-相关&#34;&gt;Qt 相关&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Qt 官方文档：&lt;a href=&#34;https://doc.qt.io/&#34;&gt;https://doc.qt.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;编程规范&#34;&gt;编程规范&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;谷歌编程风格指南：https://github.com/google/styleguide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;技术文档&#34;&gt;技术文档&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker：从实践到入门，https://yeasy.gitbook.io/docker_practice/&lt;/li&gt;
+&lt;li&gt;图说设计模式，https://design-patterns.readthedocs.io/zh_CN/latest/&lt;/li&gt;
+&lt;li&gt;腾讯开发者文档：&lt;a href=&#34;https://cloud.tencent.com/developer/devdocs&#34;&gt;https://cloud.tencent.com/developer/devdocs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;learnku 学习社区：&lt;a href=&#34;https://learnku.com/&#34;&gt;https://learnku.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;编译构建&#34;&gt;编译构建&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Meson：https://mesonbuild.com/Manual.html&lt;/li&gt;
+&lt;li&gt;CMake 示例：https://github.com/ttroy50/cmake-examples&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,91 @@
+baseURL:            "https://yongliang.dev"
+languageCode:       "zh-Hans"
+title:              "Yongliang's Blog"
+paginate:           10
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
+pygmentsstyle: "gruvbox"
+builddrafts: true
+publishDir: "docs"
+defaultContentLanguage: zh-hans
+avatarURL: "/imgs/durovdog.png"
+
+languages:
+  zh-hans:
+    contentDir: content/zh-Hans
+  en-us:
+    # contentDir: content/en-US
+    contentDir: content/zh-Hans
+
+menu:
+  footer:
+    - name: "about"
+      url: "/about"
+      weight: 1
+    - name: "noask"
+      url: "/noask"
+      weight: 2
+    - name: "think"
+      url: "/think"
+      weight: 3
+    - name: "fstgu"
+      url: "/fstgu"
+      weight: 4
+    - name: "reports"
+      url: "/reports"
+      weight: 5
+    - name: "links"
+      url: "/links"
+      weight: 6
+    - name: "tags"
+      url: "/tags"
+      weight: 7
+
+  icon:
+    - name: "rss"
+      url: "/index.xml"
+      weight: 1
+    - name: "github"
+      url: "https://github.com/neeyongliang"
+      weight: 2
+    - name: "leanpub"
+      url: "https://yuque.com/neeyongliang"
+      weight: 3
+    # - name: "telegram-plane"
+    #   url: "https://t.me/noboday"
+    #   weight: 4
+
+# Site.params
+params:
+  smartToc:         true
+  author:           Yongliang
+  search: true
+  keywords:
+    - Technology
+    - Code
+    - Program
+    - Linux
+  description:      "A os engineer, focused on software develop and embedded."
+  mainSections:
+    - fstgu
+    - noask
+    - think
+    - links
+
+markup:
+  highlight:
+    style: friendly
+    guessSyntax: true
+  tableOfContents:
+    startLevel: 1
+    endLevel: 4
+    ordered: false
+
+taxonomies:
+  tag:              "tags"
+  categories:        "categories"
+
+summaryLength: 500
+hasCJKLanguage: true
+outputs:
+  home: ["HTML", "RSS", "JSON"]

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang='zh-hans'><!DOCTYPE html>
+<html>
+<head>
+    <title>岁月神偷：001 韭菜成长记</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="A os engineer, focused on software develop and embedded.">
+<meta name="keywords" content="Technology,Code,Program,Linux,">
+<meta name="author" content="Yongliang">
+
+    <meta property="og:title" content="岁月神偷：001 韭菜成长记"/>
+<meta property="og:description" content="A os engineer, focused on software develop and embedded."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://yongliang.dev/think/life-001-jiu-cai-cheng-zhang-ji/"/>
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    
+        
+        <link rel="stylesheet" href="/css/main.min.2599ec2a176be0075b424bd6b71f67c7b8ace5f44e3892ddf42115c6c98c2a71.css" integrity="sha256-JZnsKhdr4AdbQkvWtx9nx7is5fROOJLd9CEVxsmMKnE=">
+    
+
+    
+    
+    <script defer src="/javascript/fontawesome.min.4ff4e3f53e781bf84359ac1fe60d869b86f99b78f6b99d7266779c427ead3b70.js" integrity="sha256-T/Tj9T54G/hDWawf5g2Gm4b5m3j2uZ1yZnecQn6tO3A="></script>
+    
+
+    
+    
+    <script defer src="/javascript/alpine.min.7e822eadf47d61639ca2627f71f50e0f5fbc17d8b68e3264d2842c161d43a82a.js" integrity="sha256-foIurfR9YWOcomJ/cfUOD1+8F9i2jjJk0oQsFh1DqCo="></script>
+    
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+
+    <meta name="generator" content="Hugo 0.115.4">
+</head>
+<body class="min-h-full max-w-4xl font-sans mx-4 lg:mx-auto xl:mx-auto leading-normal my-8"><header class="mx-auto">
+    <h1 class="text-center lg:text-left text-4xl text-gray-900 font-medium m-0">
+        <a class="text-gray-900" href="/">yongliang 的博客</a>
+    </h1>
+    <div class="lg:flex text-center justify-between">
+        <p class="text-lg text-gray-600">操作系统，软件开发，嵌入式</p>
+        <nav class="my-auto">
+            <ul class="justify-center flex flex-wrap list-disc list-inside">
+                <li class="list-none mx-2" x-data="{ open: false }">
+                    <button class="text-gray-600" id="modal-search" role="button" @click="open = true">
+                        <a class="text-gray-600" href="/search/"><i class="text-2xl fas fa-search"></i></a>
+                    </button>
+                </li>
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="/en-us">
+                    <i class="text-2xl fas fa-globe"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="/index.xml">
+                        <i class="text-2xl fas fa-rss"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="https://github.com/neeyongliang">
+                        <i class="text-2xl fas fa-github"></i>
+                    </a>
+                </li>
+                
+                <li class="list-none mx-2">
+                    <a class="text-gray-600" href="https://yuque.com/neeyongliang">
+                        <i class="text-2xl fas fa-leanpub"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+    <nav class="text-center border-t border-b px-1 mt-4">
+        <ul class="list-disc list-inside">
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/about">关于</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/noask">实践</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/think">思考</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/fstgu">内功</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/reports">周报</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/links">链接</a>
+            </li>
+            
+            <li class="inline-block list-none mx-4">
+                <a href="/tags">标签</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+<main class="flex-1 text-gray-900">
+    <article class="container pt-16">
+        
+        <header class="pb-4 mb-8 border-b">
+            <h1 class="my-2 text-black leading-tight">岁月神偷：001 韭菜成长记</h1>
+        </header>
+        <aside>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-股票品类">1. 股票品类</a>
+      <ul>
+        <li><a href="#12-入门">1.2. 入门</a></li>
+        <li><a href="#122-进阶">1.2.2. 进阶</a></li>
+        <li><a href="#123-避坑">1.2.3. 避坑</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-基金品类">2. 基金品类</a>
+      <ul>
+        <li><a href="#21-入门">2.1. 入门</a></li>
+        <li><a href="#22-进阶">2.2. 进阶</a></li>
+        <li><a href="#23-高级">2.3. 高级</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-债券品类">3. 债券品类</a>
+      <ul>
+        <li><a href="#31-入门">3.1. 入门</a></li>
+        <li><a href="#32-进阶">3.2. 进阶</a></li>
+        <li><a href="#33-高级">3.3. 高级</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-存款品类">4. 存款品类</a>
+      <ul>
+        <li><a href="#41-入门">4.1. 入门</a></li>
+        <li><a href="#42-进阶">4.2. 进阶</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-保险品类">5. 保险品类</a>
+      <ul>
+        <li><a href="#51-入门">5.1. 入门</a></li>
+        <li><a href="#52-进阶">5.2. 进阶</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-保持心态">6. 保持心态</a></li>
+  </ul>
+</nav>
+        </aside>
+        <div class="post-content">
+            <p>
+
+
+
+
+<img src="/think/jiucai.png" alt="韭菜" />
+</p>
+<blockquote>
+<p>一个人是无法赚到认知之外的钱，即使凭运气赚到了，最终也会凭实力亏掉。</p>
+</blockquote>
+<p>中国股市建立的目的，就是为了解决融资难的问题，让广大的社会资本参与进来。后来经过几十年的发展，形成了如股票、债券、基金、存款、保险等多种投资品种共存的局面，这里说下自己对这些品种的认识，详细的可以查找相关的资料继续学习。</p>
+<h1 id="1-股票品类">1. 股票品类</h1>
+<p>股票的复杂程度是所有品种里最高的，包含分红、打新、市盈率、市净率、涨停跌停等。股票是投资者可以在市场上直接交易的一种投资品种，沪市指的是上交所，深市指的是深交所，还有新的北交所。创业板门槛较高，一般人无法直接投资。</p>
+<h2 id="12-入门">1.2. 入门</h2>
+<p>投资者想要投资股票，首先得开通股票账户、准备资金。开通账户的选择有很多，可以选择离你较近的证券营业部或者直接在网上开通。正常买卖，就算是入门了。</p>
+<h2 id="122-进阶">1.2.2. 进阶</h2>
+<p>股票的涨跌受市场、政策或者小道消息影响，不要追涨杀跌、患得患失，也不要过分迷信价值投资，实现自己预期即可。可以看看专业人士的预测，也可以自己使用模拟软件进行练习，之后再进行真正的投资。</p>
+<h2 id="123-避坑">1.2.3. 避坑</h2>
+<p>不要自己跑去证券公司 app 或者第三方 app 上开户，这样产生的费率非常高，而且后期无法调整。A 股规定一个人只能有 3 个证券账户，多余的可以申请注销掉。尽量选择业绩排名前十的大券商，然后再从中间挑选服务质量与费率相对合适的券商。</p>
+<h1 id="2-基金品类">2. 基金品类</h1>
+<p>股票的选择比较多，所以成立了专门的基金公司代替投资者去筛选辨别股票，同时按照一定比重，形成一种组合。基金的涨跌比较温和，风险小于股票。</p>
+<h2 id="21-入门">2.1. 入门</h2>
+<p>因为目前基金门槛和费率已经大幅降低，只需要在 APP 上填写风险偏好调查，然后即可交易。
+基金分为：债基、指数基金、货币基金。
+场外交易称为申购和赎回，场内交易称为买入和卖出。以交易日当天 15:00 计算，分别是买入(T+0)、计算份额(T+1)、计算收益(T+N)。</p>
+<h2 id="22-进阶">2.2. 进阶</h2>
+<p>普通人选择 2～3 支基金即可。目前市场上有偏股、偏债等可供选择，还有一些基金会推出基金组合快速买入、跟投。</p>
+<h2 id="23-高级">2.3. 高级</h2>
+<p>基金投资的高级手法，包括 套利和通过 QDII 进行海外投资。
+以货币基金 ETF 为例，基准价格是 100 元，但是会在这个基础上上下浮动，只要买入价格低于卖出价格，就实现了套利。此外，持有时间也是有相应收益的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">买入</th>
+<th style="text-align:center">买入确认（有收益）</th>
+<th style="text-align:center">赎回</th>
+<th style="text-align:center">份额确认（无收益）</th>
+<th style="text-align:center">资金可用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">周一</td>
+<td style="text-align:center">周一</td>
+<td style="text-align:center">周一</td>
+<td style="text-align:center">周二</td>
+<td style="text-align:center">周三</td>
+</tr>
+<tr>
+<td style="text-align:center">周二</td>
+<td style="text-align:center">周二</td>
+<td style="text-align:center">周二</td>
+<td style="text-align:center">周三</td>
+<td style="text-align:center">周四</td>
+</tr>
+<tr>
+<td style="text-align:center">周三</td>
+<td style="text-align:center">周三</td>
+<td style="text-align:center">周三</td>
+<td style="text-align:center">周四</td>
+<td style="text-align:center">周五</td>
+</tr>
+<tr>
+<td style="text-align:center">周四</td>
+<td style="text-align:center">周四</td>
+<td style="text-align:center">周四</td>
+<td style="text-align:center">周五</td>
+<td style="text-align:center">下周一</td>
+</tr>
+<tr>
+<td style="text-align:center">周五</td>
+<td style="text-align:center">周五</td>
+<td style="text-align:center">周五</td>
+<td style="text-align:center">下周一</td>
+<td style="text-align:center">下周二</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-债券品类">3. 债券品类</h1>
+<p>债券的分类有很多，一般能接触到的有债券基金、可转债、国债。</p>
+<h2 id="31-入门">3.1. 入门</h2>
+<p>普通人可以买到的有定期国债、企业债、银行定期存款，债券往往意味着资金要被长期锁定。</p>
+<h2 id="32-进阶">3.2. 进阶</h2>
+<p>不直接投资债券，选择迂回方式投资。包括：可转债打新，国债逆回购。目前可转债由于人数申请较多，门槛已经被大幅抬高，中签难度也大大增加，一般是企业或者发债机构发债，属于蚊子腿级别。
+国债逆回购，是市场上金融机构向普通投资者借钱的工具之一。参与国债逆回购，按照实际资金占用天数给予利息。</p>
+<h2 id="33-高级">3.3. 高级</h2>
+<p>注意这个实际占用天数不包含假期，一般规律是最后一个交易日的前一天，会多付很多利息。</p>
+<ul>
+<li>每周四借出一天期限的国债逆回购，可以享受四天的利息；</li>
+<li>每季度末、半年末，出借一天期限的国债逆回购；</li>
+</ul>
+<p>所以，每周一至周四购买国债逆回购或者其他投资，周五购买货币基金 ETF，利用计算方式的不同，可以享受 9 天的收益！</p>
+<h1 id="4-存款品类">4. 存款品类</h1>
+<h2 id="41-入门">4.1. 入门</h2>
+<p>活期，定期，还有大额存款。</p>
+<h2 id="42-进阶">4.2. 进阶</h2>
+<ul>
+<li>现在存款利息真的很低（2023）；</li>
+<li>中国法律规定银行如果破产，赔付上限只有 50W；</li>
+<li>优先买货币基金或者国债逆回购；</li>
+</ul>
+<h1 id="5-保险品类">5. 保险品类</h1>
+<h2 id="51-入门">5.1. 入门</h2>
+<p>只买过保险存款，每月一期那种。</p>
+<h2 id="52-进阶">5.2. 进阶</h2>
+<p>各种保险，养老、人寿等。</p>
+<h1 id="6-保持心态">6. 保持心态</h1>
+<ul>
+<li>不断学习，增强认知；</li>
+<li>普通人可能本身就不是那块料，交给别人去操作说不定比自己瞎折腾更赚；</li>
+<li>不要上杠杆，投资用闲钱。</li>
+</ul>
+
+        </div>
+        
+        <div class="text-center pt-4 grid grid-cols-12">
+        
+    
+    
+            <div class="col-span-2">
+                <p>分类</p>
+            </div>
+            <div class="col-span-10">
+                <p>
+                    
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/categories/think/"> think </a>
+                            
+                        
+                    
+                </p>
+            </div>
+            
+            
+            
+    
+    
+            <div class="col-span-2">
+                <p>标签</p>
+            </div>
+            <div class="col-span-10">
+                <p>
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/tags/linux/"> linux </a>
+                            
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                <a class="inline-block border border-blue-600 px-2 rounded" href="/tags/money/"> money </a>
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                </p>
+            </div>
+            
+            
+            
+        </div>
+        <hr class="border-gray-200 mt-10 mb-4">
+        
+        <div class="giscus"></div>
+
+<script src="https://giscus.app/client.js"
+        data-repo="neeyongliang/neeyongliang.github.io"
+        data-repo-id="R_kgDOKJTgJQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKJTgJc4CY3OE"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+    </article>
+
+
+    
+    
+</main>
+</body>
+</html>
